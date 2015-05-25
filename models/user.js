@@ -4,6 +4,7 @@ var Schema = mongoose.Schema;
 var userSchema = new Schema({
 			name: String,
 			wakeUp: String,
+			set_id:String,
 			goOut: String,
 			clUsage: Number,
 			timeLeft:String,

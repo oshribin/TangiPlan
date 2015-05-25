@@ -6,6 +6,7 @@ var taskSchema = new Schema({
 			givDuration: String,
 			exDuration:String,
 			objectId:Number,
+			set_id:String, 
 			lastObjectId:Number,
 			lastDate:Date,
 			checked:Boolean,

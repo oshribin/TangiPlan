@@ -29,10 +29,6 @@ setTimeout(function(){
 mongoose.connect("mongodb://localhost:27017/test");
 
 app.use(bodyParser());
-app.use(session({secret: "keyboard cat",  cookie:{maxAge:10*24*60*60*1000}}));
-app.use(cookieParser());
-app.use(passport.initialize());
-app.use(passport.session());
 
 
 var router = express.Router();
@@ -99,7 +95,10 @@ router.route("/getDuration/:object_id/:set_id")
 		});
 	});
 
-
+app.use(session({secret: "keyboard cat",  cookie:{maxAge:10*24*60*60*1000}}));
+app.use(cookieParser());
+app.use(passport.initialize());
+app.use(passport.session());
 
 
 router.get("/objectslogfile", function(req, res){

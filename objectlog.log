@@ -1055,3 +1055,142 @@
 0user 54fc164e89853c6249000001 1431246755639 updateTask updated
 0user 54fc164e89853c6249000001 1431246755642 updateTask updated
 0user 54fc164e89853c6249000001 1431246755644 updateTask updated
+0User oshribin 1431249697789 login connected
+0User oshribin 1431249724177 goOut go Out
+0User oshribin 1431249724179 setGoOut set go out
+0User oshribin 1431249724178 setWakeUp set wake up
+0User oshribin 1431251576541 login connected
+0User oshribin 1431251815542 login connected
+0User oshribin 1431251818963 goOut go Out
+0User oshribin 1431251818964 setWakeUp set wake up
+0User oshribin 1431251818965 setGoOut set go out
+0User oshribin 1431252069287 login connected
+0User oshribin 1431252263570 login connected
+0User oshribin 1431252269738 goOut go Out
+0User oshribin 1431252269739 setWakeUp set wake up
+0User oshribin 1431252269740 setGoOut set go out
+0User oshribin 1431252429252 login connected
+0User oshribin 1431252433135 goOut go Out
+0User oshribin 1431252433136 setWakeUp set wake up
+0User oshribin 1431252433136 setGoOut set go out
+0User oshribin 1431252436528 setGoOut set go out
+0user 554f037b91b5541f50000001 1431252522760 updateTask updated
+0user 554f037b91b5541f50000001 1431252522768 updateTask updated
+0user 554f037b91b5541f50000001 1431252522791 updateTask updated
+0user 554f037b91b5541f50000001 1431252522799 updateTask updated
+0user 554f037b91b5541f50000001 1431252531225 updateTask updated
+0user 554f037b91b5541f50000001 1431252531240 updateTask updated
+0user 554f037b91b5541f50000001 1431252531249 updateTask updated
+0user 554f037b91b5541f50000001 1431252531254 updateTask updated
+0User david 1431252745440 login connected
+0User david 1431252748443 goOut go Out
+0User david 1431252748444 setWakeUp set wake up
+0User david 1431252748445 setGoOut set go out
+0user 554f04c8bb48197950000001 1431252776682 updateTask updated
+0user 554f04c8bb48197950000001 1431252776691 updateTask updated
+0user 554f04c8bb48197950000001 1431252776697 updateTask updated
+0user 554f04c8bb48197950000001 1431252776701 updateTask updated
+0user 554f04c8bb48197950000001 1431252780175 updateTask updated
+0user 554f04c8bb48197950000001 1431252780186 updateTask updated
+0user 554f04c8bb48197950000001 1431252780192 updateTask updated
+0user 554f04c8bb48197950000001 1431252780197 updateTask updated
+0object spark 2 1431253328666 getDuration 2:120000
+0object spark 2 1431253335698 getDuration 2:120000
+0object spark 3 1431253343246 getDuration 3:120000
+0object spark 3 1431253369000 setDuration task end
+0User oshribin 1431253393307 login connected
+0User david 1431253412716 login connected
+0object spark 2 1431253457000 setDuration task end
+0object spark 1 1431253485000 setDuration task end
+0object spark 4 1431253546000 setDuration task end
+0User oshribin 1431253588214 login connected
+0object spark 2 1431253899054 getDuration 2:120000
+0User oshribin 1431254897053 login connected
+0User oshribin 1431255367169 goOut go Out
+0User oshribin 1431255367170 setWakeUp set wake up
+0User oshribin 1431255367170 setGoOut set go out
+0user 554f0d27e314334a54000002 1431255393652 updateTask updated
+0user 554f0d27e314334a54000002 1431255393660 updateTask updated
+0user 554f0d27e314334a54000002 1431255393669 updateTask updated
+0user 554f0d27e314334a54000002 1431255396741 updateTask updated
+0user 554f0d27e314334a54000002 1431255396749 updateTask updated
+0user 554f0d27e314334a54000002 1431255396752 updateTask updated
+0User david 1431255481188 login connected
+0User david 1431255484219 goOut go Out
+0User david 1431255484219 setWakeUp set wake up
+0User david 1431255484220 setGoOut set go out
+0user 554f0d21e314334a54000001 1431255511896 updateTask updated
+0user 554f0d21e314334a54000001 1431255511902 updateTask updated
+0user 554f0d21e314334a54000001 1431255511904 updateTask updated
+0user 554f0d21e314334a54000001 1431255514802 updateTask updated
+0user 554f0d21e314334a54000001 1431255514806 updateTask updated
+0user 554f0d21e314334a54000001 1431255514809 updateTask updated
+0object spark 2 1431255533268 getDuration 2:120000
+0object spark 2 1431255539123 getDuration 2:-1
+0object spark 3 1431255546781 getDuration 3:120000
+0object spark 3 1431255565000 setDuration task end
+0User david 1431255589959 login connected
+0User oshribin 1431255616014 login connected
+0User david 1431255749073 login connected
+0user 554f0d21e314334a54000001 1431258030738 updateTask updated
+0user 554f0d21e314334a54000001 1431258030744 updateTask updated
+0user 554f0d21e314334a54000001 1431258030748 updateTask updated
+0User oshribin 1431258237079 login connected
+0User oshribin 1431258240256 goOut go Out
+0User oshribin 1431258240256 setWakeUp set wake up
+0User oshribin 1431258240257 setGoOut set go out
+0user 554f1a41e81a0c3059000001 1431258253965 updateTask updated
+0user 554f1a41e81a0c3059000001 1431258253976 updateTask updated
+0user 554f1a41e81a0c3059000001 1431258253978 updateTask updated
+0user 554f1a41e81a0c3059000001 1431258257566 updateTask updated
+0user 554f1a41e81a0c3059000001 1431258257569 updateTask updated
+0user 554f1a41e81a0c3059000001 1431258257571 updateTask updated
+0object spark 3 1431258271000 setDuration task end
+0user 554f1a41e81a0c3059000001 1431258320670 updateTask updated
+0user 554f1a41e81a0c3059000001 1431258320672 updateTask updated
+0user 554f1a41e81a0c3059000001 1431258320691 updateTask updated
+0User oshribin 1431263352869 login connected
+0User oshribin 1431263372031 goOut go Out
+0User oshribin 1431263372033 setWakeUp set wake up
+0User oshribin 1431263372034 setGoOut set go out
+0user 554f2e3109b014c75f000001 1431263400452 updateTask updated
+0user 554f2e3109b014c75f000001 1431263400459 updateTask updated
+0user 554f2e3109b014c75f000001 1431263400471 updateTask updated
+0user 554f2e3109b014c75f000001 1431263409297 updateTask updated
+0user 554f2e3109b014c75f000001 1431263409301 updateTask updated
+0user 554f2e3109b014c75f000001 1431263409308 updateTask updated
+0User david 1431263456515 login connected
+0User david 1431263460687 goOut go Out
+0User david 1431263460688 setWakeUp set wake up
+0User david 1431263460689 setGoOut set go out
+0user 554f2e9955a36c5e60000001 1431263490186 updateTask updated
+0user 554f2e9955a36c5e60000001 1431263490199 updateTask updated
+0user 554f2e9955a36c5e60000001 1431263490203 updateTask updated
+0user 554f2e9955a36c5e60000001 1431263491965 updateTask updated
+0user 554f2e9955a36c5e60000001 1431263491972 updateTask updated
+0user 554f2e9955a36c5e60000001 1431263491977 updateTask updated
+0object spark 2 1431263511304 getDuration 2:120000
+0object spark 3 1431263526240 getDuration 3:120000
+0object spark 3 1431263550000 setDuration task end
+0object spark 1 1431263581109 getDuration 1:120000
+0User david 1431263637472 goOut go Out
+0User oshribin 1431263982580 login connected
+0User oshribin 1431264149407 setWakeUp set wake up
+0object spark 1 1431265759000 setDuration task end
+0User oshribin 1431438112561 login connected
+0object spark 2 1431438221000 setDuration task end
+0User oshribin 1431438407753 login connected
+0User oshribin 1431438425295 setGoOut set go out
+0user 554f2e3109b014c75f000001 1431438426600 updateTask updated
+0user 554f2e3109b014c75f000001 1431438426680 updateTask updated
+0user 554f2e3109b014c75f000001 1431438426684 updateTask updated
+0object spark 1 1431438448000 setDuration task end
+0User oshribin 1431440794862 login connected
+0object spark 2 1431440837000 setDuration task end
+0object spark 3 1431441089000 setDuration task end
+0User oshribin 1431441230284 login connected
+0user 554f2e3109b014c75f000001 1431441238013 updateTask updated
+0user 554f2e3109b014c75f000001 1431441238069 updateTask updated
+0user 554f2e3109b014c75f000001 1431441238078 updateTask updated
+0object spark 3 1431441329000 setDuration task end
+0object spark 2 1432443134338 getDuration 2:-1

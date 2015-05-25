@@ -20,12 +20,13 @@ var hour = date.getHours();
 var minutes = date.getMinutes();
 var hoursOffset = (24 + (restartTime - hour)) % 24;
 var interval = hoursOffset*3600000 - minutes*60000;
+var Promise = require('bluebird');
 setTimeout(function(){
 	setInterval(taskReset,24*3600000);
 	}, interval);
 
 
-
+Promise.promisifyAll(mongoose);
 mongoose.connect("mongodb://localhost:27017/test");
 
 app.use(bodyParser());
@@ -36,6 +37,7 @@ app.use(passport.session());
 
 
 var router = express.Router();
+Promise.promisifyAll(router);
 
 router.get("/object_filter/:action/:object_id/:from/:untill", function(req, res){
 	console.log(req.params.from);
@@ -55,24 +57,10 @@ router.get("/object_filter/:action/:object_id/:from/:untill", function(req, res)
 
 
 router.route("/getDuration/:object_id/:set_id")
-	
 	.get(function(req, res){
-		req.session = null;
-		Task.findOne({objectId:req.params.object_id, set_id:req.params.set_id}, function(err, task){
-			if(err){
-				//eror while looking for task
-				logger({entity:"object spark",
-						name:req.params.object_id,
-						date: Date.now() + timeOffset,
-						request: "/getDuration/"+req.params.object_id,
-						action: "getDuration",
-						result:"error",
-						set_id: req.params.set_id,
-						});
-				res.send(err);
-			}
-
-			else if(task && task.givDuration){
+		Task.findOneAsync({objectId:req.params.object_id, set_id:req.params.set_id})
+		.then(function(task){
+			if(task && task.givDuration){
 				res.send(task.objectId+":"+parsMill(task.givDuration));
 				//succeed to send task
 				logger({entity:"object spark",
@@ -84,7 +72,7 @@ router.route("/getDuration/:object_id/:set_id")
 						set_id: req.params.set_id,
 						});
 			}
-			else{
+			else{				
 				res.send(req.params.object_id +":"+ -1);
 				//there is no task
 				logger({entity:"object spark",
@@ -96,12 +84,22 @@ router.route("/getDuration/:object_id/:set_id")
 						set_id: req.params.set_id,
 						});
 			}
+		})
+		.catch(function(err){
+				//eror while looking for task
+				logger({entity:"object spark",
+						name:req.params.object_id,
+						date: Date.now() + timeOffset,
+						request: "/getDuration/"+req.params.object_id,
+						action: "getDuration",
+						result:"error",
+						set_id: req.params.set_id,
+						});
+				res.send(err);
+
 		});
 	});
-
-
-
-
+	
 router.get("/objectslogfile", function(req, res){
 	res.sendfile("objectlog.log");
 });
@@ -110,24 +108,22 @@ router.get("/objectslogfile", function(req, res){
 
 
 router.get("/download/:action/:set_id", function(req,res){
-	Log.find({action:req.params.action, set_id: req.params.set_id}, function(err, logs){
-		if(err)
-			res.send(err);
-		else if(logs){	
-			var csvStream = csv.format({headers: true, objectMode: true});
-   			var writableStream = fs.createWriteStream("log.csv");
-   				writableStream.on("finish", function(){
-   					console.log("done");
-  					res.download("log.csv");
-				});
-			csvStream.pipe(writableStream);
-			logs.forEach(function(log){
-				log["date"] =  new Date(parseInt(log.date));
-				console.log(log);
-				csvStream.write(log.toObject());
-			});	
-			csvStream.end();
-		}
+	Log.findAsync({action:req.params.action, set_id: req.params.set_id})
+	.then(function(logs){
+		var csvStream = csv.format({headers: true, objectMode: true});
+   		var writableStream = fs.createWriteStream("log.csv");
+   		writableStream.on("finish", function(){
+  			res.download("log.csv");
+		});
+		csvStream.pipe(writableStream);
+		logs.forEach(function(log){
+			log["date"] =  new Date(parseInt(log.date));
+			csvStream.write(log.toObject());
+		});	
+		csvStream.end();
+	})
+	.catch(function(err){
+		console.error(err);
 	});
 });
 
