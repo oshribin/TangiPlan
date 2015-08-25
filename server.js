@@ -54,12 +54,14 @@ router.get("/object_filter/:action/:object_id/:from/:untill", function(req, res)
 });
 
 
-router.route("/getDuration/:object_id/:set_id")
+router.route("/getDuration/:set_id/:object_id")
 	
 	.get(function(req, res){
+		console.log( req.params );
 		req.session = null;
 		Task.findOne({objectId:req.params.object_id, set_id:req.params.set_id}, function(err, task){
 			if(err){
+				console.log( "1");
 				//eror while looking for task
 				logger({entity:"object spark",
 						name:req.params.object_id,
@@ -73,6 +75,7 @@ router.route("/getDuration/:object_id/:set_id")
 			}
 
 			else if(task && task.givDuration){
+				console.log("2");
 				res.send(task.objectId+":"+parsMill(task.givDuration));
 				//succeed to send task
 				logger({entity:"object spark",
@@ -85,6 +88,7 @@ router.route("/getDuration/:object_id/:set_id")
 						});
 			}
 			else{
+				console.log( "3" )
 				res.send(req.params.object_id +":"+ -1);
 				//there is no task
 				logger({entity:"object spark",
@@ -220,9 +224,10 @@ passport.use(new LocalStrategy(function(username, password,done){
 
 router.use("/public", express.static("public"));
 
-router.get("/objectOn/:objectId/:set_id/:timeStamp", function(req, res){
+router.get("/objectOn/:set_id/:objectId/:timeStamp", function(req, res){
+	console.log( req.params );
 	req.session = null;
-	res.send("objecton");
+	res.send("o");
 	logger({entity:"object spark",
 			name:req.params.objectId + req.params.set_id,
 			date: Date.now() + timeOffset,
@@ -365,7 +370,7 @@ router.route("/tasks")
 
 
 
-router.route("/setDuration/:object_id/:set_id/:ex_duration/:flag")
+router.route("/setDuration/:set_id/:object_id/:ex_duration/:flag")
 
 	.get(function(req, res){
 		req.session = null;
@@ -645,7 +650,7 @@ router.route("/tasks/:task_id")
 			if(err)
 				console.log(err);
 		});
-		console.log("1");
+
 
 	}
 
@@ -675,5 +680,5 @@ router.route("/tasks/:task_id")
 
 
 app.use("/TangiPlan", router);
-app.listen("8080");
+app.listen("80");
 console.log("walla");

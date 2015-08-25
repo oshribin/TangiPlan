@@ -1194,3 +1194,92 @@
 0user 554f2e3109b014c75f000001 1431441238078 updateTask updated
 0object spark 3 1431441329000 setDuration task end
 0object spark 2 1432443134338 getDuration 2:-1
+0User oshri 1439250912389 login connected
+0User oshri 1439250922801 goOut go Out
+0User oshri 1439250922809 setWakeUp set wake up
+0User oshri 1439250922809 setGoOut set go out
+0user 55c90f8b64916bcf09000001 1439250944779 updateTask updated
+0user 55c90f8b64916bcf09000001 1439250945042 updateTask updated
+0user 55c90f8b64916bcf09000001 1439250945266 updateTask updated
+0user 55c90f8b64916bcf09000001 1439250952367 updateTask updated
+0user 55c90f8b64916bcf09000001 1439250952381 updateTask updated
+0user 55c90f8b64916bcf09000001 1439250952417 updateTask updated
+0User oshri 1440082007426 login connected
+0user 55c90f8b64916bcf09000001 1440082364123 updateTask updated
+0user 55c90f8b64916bcf09000001 1440082364125 updateTask updated
+0user 55c90f8b64916bcf09000001 1440082364127 updateTask updated
+0object spark A3 1440083172253 objectOn object on
+0object spark A3 1440083176407 objectOn object on
+0object spark A3 1440083181312 objectOn object on
+0object spark A3 1440083188382 objectOn object on
+0object spark A3 1440083289582 objectOn object on
+0object spark 3 1440083292881 getDuration 3:-1
+0object spark A3 1440083351816 objectOn object on
+0object spark 3 1440083356838 getDuration 3:-1
+0object spark B5 1440083510657 objectOn object on
+0object spark 5 1440083515120 getDuration 5:-1
+0object spark A3 1440083528078 objectOn object on
+0object spark A3 1440083532141 objectOn object on
+0object spark A3 1440083537134 objectOn object on
+0object spark A3 1440083542140 objectOn object on
+0object spark A3 1440083549195 objectOn object on
+0object spark 3 1440083552356 getDuration 3:-1
+0User oshri 1440200127177 login connected
+0user 55c90f8b64916bcf09000001 1440200135816 updateTask updated
+0user 55c90f8b64916bcf09000001 1440200135824 updateTask updated
+0user 55c90f8b64916bcf09000001 1440200135836 updateTask updated
+0object spark A3 1440200286900 objectOn object on
+0object spark A3 1440200335737 objectOn object on
+0object spark A3 1440200384645 objectOn object on
+0object spark A3 1440201701270 objectOn object on
+0object spark A3 1440201750190 objectOn object on
+0object spark A3 1440207215706 objectOn object on
+0object spark A3 1440207313488 objectOn object on
+0object spark A3 1440207359217 objectOn object on
+0object spark A3 1440209953327 objectOn object on
+0object spark A3 1440209997837 objectOn object on
+0object spark A 1440210004405 getDuration error
+0object spark 3A 1440210288206 objectOn object on
+0object spark 3A 1440210335411 objectOn object on
+0object spark 3A 1440210380333 objectOn object on
+0object spark 3A 1440210539768 objectOn object on
+0object spark 3A 1440210584737 objectOn object on
+0object spark 3A 1440210631670 objectOn object on
+0object spark 5B 1440210854730 objectOn object on
+0object spark :1:a 1440211147599 objectOn object on
+0object spark :1:a 1440211160736 objectOn object on
+0object spark 5B 1440211274074 objectOn object on
+0object spark 5B 1440211319375 objectOn object on
+0object spark 5B 1440211363827 objectOn object on
+0object spark 3A 1440211452251 objectOn object on
+0object spark 3 1440211457246 getDuration 3:-1
+0User oshri 1440211638913 login connected
+0User oshri 1440211889783 setGoOut set go out
+0User oshri 1440211894997 setGoOut set go out
+0user 55c90f8b64916bcf09000001 1440211911396 updateTask updated
+0user 55c90f8b64916bcf09000001 1440211911406 updateTask updated
+0user 55c90f8b64916bcf09000001 1440211911639 updateTask updated
+0User oshri 1440211934848 login connected
+0user 55c90f8b64916bcf09000001 1440212007625 updateTask updated
+0user 55c90f8b64916bcf09000001 1440212007635 updateTask updated
+0user 55c90f8b64916bcf09000001 1440212007647 updateTask updated
+0user 55c90f8b64916bcf09000001 1440212007660 updateTask updated
+0user 55c90f8b64916bcf09000001 1440212007667 updateTask updated
+0user 55c90f8b64916bcf09000001 1440212008069 updateTask updated
+0object spark 3A 1440212033606 objectOn object on
+0object spark 3 1440212038701 getDuration 3:120000
+0User oshri 1440212180428 login connected
+0User oshri 1440212205462 login connected
+0User oshri 1440212206418 login connected
+0object spark 3A 1440234456319 objectOn object on
+0object spark 3A 1440234502019 objectOn object on
+0object spark 3A 1440234596217 objectOn object on
+0object spark 3 1440234601000 setDuration task end
+0user 55c90f8b64916bcf09000001 1440234828456 updateTask updated
+0user 55c90f8b64916bcf09000001 1440234828465 updateTask updated
+0user 55c90f8b64916bcf09000001 1440234828474 updateTask updated
+0user 55c90f8b64916bcf09000001 1440234828489 updateTask updated
+0user 55c90f8b64916bcf09000001 1440234828499 updateTask updated
+0user 55c90f8b64916bcf09000001 1440234828932 updateTask updated
+0object spark 3A 1440234855584 objectOn object on
+0object spark 3A 1440234903862 objectOn object on
