@@ -1406,3 +1406,413 @@
 0object spark 5B 1440517820350 objectOn object on
 0object spark 5 1440517824140 getDuration 5:120000
 0object spark 5 1440517854000 setDuration task end
+0User ori 1440671650606 login connected
+0User oshri 1440671678532 login connected
+0User oshri 1440671683137 goOut go Out
+0User oshri 1440671683137 setWakeUp set wake up
+0User oshri 1440671683138 setGoOut set go out
+0user 55debd631829ca9133000002 1440671721061 updateTask updated
+0user 55debd631829ca9133000002 1440671721092 updateTask updated
+0user 55debd631829ca9133000002 1440671721122 updateTask updated
+0user 55debd631829ca9133000002 1440671721153 updateTask updated
+0user 55debd631829ca9133000002 1440671721178 updateTask updated
+0user 55debd631829ca9133000002 1440671798616 updateTask updated
+0user 55debd631829ca9133000002 1440671798624 updateTask updated
+0user 55debd631829ca9133000002 1440671798665 updateTask updated
+0user 55debd631829ca9133000002 1440671798681 updateTask updated
+0user 55debd631829ca9133000002 1440671798702 updateTask updated
+0user 55debd631829ca9133000002 1440671798722 updateTask updated
+0user 55debd631829ca9133000002 1440671807049 updateTask updated
+0user 55debd631829ca9133000002 1440671807083 updateTask updated
+0user 55debd631829ca9133000002 1440671807126 updateTask updated
+0user 55debd631829ca9133000002 1440671807130 updateTask updated
+0user 55debd631829ca9133000002 1440671807152 updateTask updated
+0user 55debd631829ca9133000002 1440671807168 updateTask updated
+0User ori 1440671853726 goOut go Out
+0User ori 1440671853727 setWakeUp set wake up
+0User ori 1440671853727 setGoOut set go out
+0user 55debd541829ca9133000001 1440671889850 updateTask updated
+0user 55debd541829ca9133000001 1440671889888 updateTask updated
+0user 55debd541829ca9133000001 1440671889911 updateTask updated
+0user 55debd541829ca9133000001 1440671889936 updateTask updated
+0user 55debd541829ca9133000001 1440671889960 updateTask updated
+0user 55debd541829ca9133000001 1440671889974 updateTask updated
+0user 55debd541829ca9133000001 1440671896781 updateTask updated
+0user 55debd541829ca9133000001 1440671896809 updateTask updated
+0user 55debd541829ca9133000001 1440671896843 updateTask updated
+0user 55debd541829ca9133000001 1440671896849 updateTask updated
+0user 55debd541829ca9133000001 1440671896876 updateTask updated
+0user 55debd541829ca9133000001 1440671896898 updateTask updated
+0object spark 2B 1440673270302 objectOn object on
+0object spark 2 1440673275136 getDuration 2:-1
+0object spark 2 1440673280188 getDuration 2:-1
+0object spark 2B 1440673321882 objectOn object on
+0object spark 2 1440673325803 getDuration 2:-1
+0user 55debd541829ca9133000001 1440673497510 updateTask updated
+0user 55debd541829ca9133000001 1440673497552 updateTask updated
+0user 55debd541829ca9133000001 1440673497571 updateTask updated
+0user 55debd541829ca9133000001 1440673497867 updateTask updated
+0user 55debd541829ca9133000001 1440673497927 updateTask updated
+0user 55debd541829ca9133000001 1440673497945 updateTask updated
+0user 55debd541829ca9133000001 1440673501031 updateTask updated
+0user 55debd541829ca9133000001 1440673501035 updateTask updated
+0user 55debd541829ca9133000001 1440673501050 updateTask updated
+0user 55debd541829ca9133000001 1440673501267 updateTask updated
+0user 55debd541829ca9133000001 1440673501274 updateTask updated
+0user 55debd541829ca9133000001 1440673501545 updateTask updated
+0object spark 2B 1440673532185 objectOn object on
+0object spark 2 1440673537823 getDuration 2:120000
+0object spark 2 1440673589000 setDuration task end
+0object spark 2B 1440673676153 objectOn object on
+0object spark 2 1440673681193 getDuration 2:-1
+0object spark 1B 1440673733717 objectOn object on
+0object spark 1 1440673738047 getDuration 1:120000
+0user 55debd631829ca9133000002 1440673855458 updateTask updated
+0user 55debd631829ca9133000002 1440673855502 updateTask updated
+0user 55debd631829ca9133000002 1440673855529 updateTask updated
+0user 55debd631829ca9133000002 1440673855554 updateTask updated
+0user 55debd631829ca9133000002 1440673855851 updateTask updated
+0user 55debd631829ca9133000002 1440673855883 updateTask updated
+0user 55debd631829ca9133000002 1440673862878 updateTask updated
+0user 55debd631829ca9133000002 1440673862932 updateTask updated
+0user 55debd631829ca9133000002 1440673862941 updateTask updated
+0user 55debd631829ca9133000002 1440673862959 updateTask updated
+0user 55debd631829ca9133000002 1440673862997 updateTask updated
+0user 55debd631829ca9133000002 1440673863005 updateTask updated
+0object spark 1 1440673872000 setDuration task end
+0object spark 1B 1440673978329 objectOn object on
+0object spark 1 1440673982246 getDuration 1:-1
+0object spark 1B 1440674027584 objectOn object on
+0object spark 1B 1440674071543 objectOn object on
+0object spark 1B 1440674076125 objectOn object on
+0object spark 3B 1440674211376 objectOn object on
+0object spark 3B 1440674252157 objectOn object on
+0object spark 3 1440674256604 getDuration 3:120000
+0object spark 2B 1440674346425 objectOn object on
+0object spark 3 1440674495000 setDuration task end
+0object spark 4B 1440674958171 objectOn object on
+0object spark 4 1440674963172 getDuration 4:120000
+0object spark 4 1440674967593 getDuration 4:120000
+0object spark 6B 1440675001119 objectOn object on
+0object spark 6 1440675004485 getDuration 6:120000
+0object spark 2B 1440675056324 objectOn object on
+0object spark 2B 1440675061026 objectOn object on
+0object spark 2 1440675066033 getDuration 2:-1
+0object spark 2B 1440675263104 objectOn object on
+0object spark 2 1440675267673 getDuration 2:-1
+0object spark 6 1440675287000 setDuration task end
+0object spark 4 1440675289000 setDuration task end
+0object spark 2B 1440675684664 objectOn object on
+0object spark 2 1440675689257 getDuration 2:-1
+0object spark 2 1440675693796 getDuration 2:-1
+0object spark 4B 1440675998634 objectOn object on
+0object spark 4 1440676004037 getDuration 4:-1
+0object spark 1A 1440676052900 objectOn object on
+0object spark 6B 1440676055299 objectOn object on
+0object spark 1A 1440676057220 objectOn object on
+0object spark 6B 1440676061707 objectOn object on
+0object spark 1 1440676062087 getDuration 1:120000
+0object spark 1 1440676089000 setDuration task end
+0object spark 2B 1440676205868 objectOn object on
+0object spark 2 1440676209359 getDuration 2:-1
+0object spark 3B 1440676285511 objectOn object on
+0object spark 3 1440676290526 getDuration 3:-1
+0object spark 3 1440676295741 getDuration 3:-1
+0object spark 2A 1440676927783 objectOn object on
+0object spark 2 1440676932167 getDuration 2:120000
+0object spark 1B 1440677108290 objectOn object on
+0object spark 1B 1440677113681 objectOn object on
+0object spark 2 1440677135000 setDuration task end
+0object spark 4A 1440677202841 objectOn object on
+0object spark 4 1440677207018 getDuration 4:120000
+0object spark 4 1440677286000 setDuration task end
+0object spark 1B 1440677510433 objectOn object on
+0object spark 1B 1440677547899 objectOn object on
+0object spark 1 1440677553327 getDuration 1:-1
+0object spark 5A 1440677582351 objectOn object on
+0object spark 1B 1440677585547 objectOn object on
+0object spark 5 1440677586639 getDuration 5:120000
+0object spark 5 1440677728000 setDuration task end
+0object spark 6A 1440677979400 objectOn object on
+0object spark 6A 1440677983837 objectOn object on
+0object spark 6 1440677988844 getDuration 6:120000
+0object spark 6 1440678092000 setDuration task end
+0user 55debd541829ca9133000001 1440678499766 updateTask updated
+0user 55debd541829ca9133000001 1440678500449 updateTask updated
+0user 55debd541829ca9133000001 1440678500612 updateTask updated
+0user 55debd541829ca9133000001 1440678501063 updateTask updated
+0user 55debd541829ca9133000001 1440678501072 updateTask updated
+0user 55debd541829ca9133000001 1440678501613 updateTask updated
+0object spark 5A 1440678522678 objectOn object on
+0object spark 4B 1440678531578 objectOn object on
+0object spark 4 1440678536683 getDuration 4:120000
+0object spark 6B 1440678539619 objectOn object on
+0object spark 6 1440678544779 getDuration 6:120000
+0object spark 3B 1440678548658 objectOn object on
+0object spark 3 1440678553612 getDuration 3:120000
+0object spark 2B 1440678553817 objectOn object on
+0object spark 2B 1440678559325 objectOn object on
+0object spark 2 1440678564206 getDuration 2:120000
+0object spark 1A 1440678576400 objectOn object on
+0object spark 1 1440678580430 getDuration 1:-1
+0object spark 1A 1440678606391 objectOn object on
+0object spark 1 1440678610992 getDuration 1:-1
+0object spark 1 1440678615984 getDuration 1:-1
+0object spark 3 1440678666000 setDuration task end
+0object spark 4 1440678711000 setDuration task end
+0object spark 4B 1440678716212 objectOn object on
+0object spark 4B 1440678721681 objectOn object on
+0object spark 4B 1440678726029 objectOn object on
+0object spark 4A 1440678734879 objectOn object on
+0object spark 4B 1440678866059 objectOn object on
+0object spark 6A 1440678883468 objectOn object on
+0User ori 1440678886235 login connected
+0object spark 6 1440678887593 getDuration 6:-1
+0object spark 3B 1440678976130 objectOn object on
+0object spark 3B 1440678981124 objectOn object on
+0object spark 3 1440678986124 getDuration 3:-1
+0object spark 2 1440678987000 setDuration task end
+0object spark 6 1440679057000 setDuration task end
+0object spark 4B 1440679066832 objectOn object on
+0object spark 3B 1440679086180 objectOn object on
+0object spark 3 1440679091424 getDuration 3:-1
+0object spark 3B 1440679132164 objectOn object on
+0object spark 3 1440679137047 getDuration 3:-1
+0object spark 1C 1440679215130 objectOn object on
+0object spark 1C 1440679219814 objectOn object on
+0object spark 1C 1440679224788 objectOn object on
+0object spark 1 1440679229770 getDuration 1:-1
+0object spark 1 1440679234826 getDuration 1:-1
+0object spark 3B 1440679273316 objectOn object on
+0user 55debd541829ca9133000001 1440679294360 updateTask updated
+0user 55debd541829ca9133000001 1440679294474 updateTask updated
+0user 55debd541829ca9133000001 1440679294982 updateTask updated
+0user 55debd541829ca9133000001 1440679295449 updateTask updated
+0user 55debd541829ca9133000001 1440679295562 updateTask updated
+0user 55debd541829ca9133000001 1440679295597 updateTask updated
+0object spark 3B 1440679343262 objectOn object on
+0object spark 4B 1440679346331 objectOn object on
+0object spark 3B 1440679347439 objectOn object on
+0object spark 4 1440679351000 setDuration task end
+0object spark 3 1440679352342 getDuration 3:120000
+0User oshri 1440679538773 login connected
+0user 55debd631829ca9133000002 1440679544939 updateTask updated
+0user 55debd631829ca9133000002 1440679545426 updateTask updated
+0user 55debd631829ca9133000002 1440679545507 updateTask updated
+0user 55debd631829ca9133000002 1440679545952 updateTask updated
+0user 55debd631829ca9133000002 1440679546157 updateTask updated
+0user 55debd631829ca9133000002 1440679546546 updateTask updated
+0object spark 6A 1440679577450 objectOn object on
+0object spark 6 1440679580399 getDuration 6:120000
+0object spark 2A 1440679582275 objectOn object on
+0object spark 2 1440679587513 getDuration 2:120000
+0object spark 4A 1440679589763 objectOn object on
+0object spark 2 1440679592348 getDuration 2:120000
+0object spark 5A 1440679592441 objectOn object on
+0object spark 4A 1440679594567 objectOn object on
+0object spark 5 1440679597470 getDuration 5:120000
+0object spark 1A 1440679598045 objectOn object on
+0object spark 4 1440679599353 getDuration 4:120000
+0object spark 1A 1440679603191 objectOn object on
+0object spark 1A 1440679608270 objectOn object on
+0object spark 1A 1440679613373 objectOn object on
+0object spark 1A 1440679620489 objectOn object on
+0object spark 1A 1440679668304 objectOn object on
+0object spark 3B 1440679671815 objectOn object on
+0object spark 1 1440679673480 getDuration 1:120000
+0object spark 3B 1440679692602 objectOn object on
+0object spark 3 1440679697546 getDuration 3:120000
+0object spark 6 1440679714000 setDuration task end
+0object spark 2 1440679776000 setDuration task end
+0object spark 4 1440679844000 setDuration task end
+0object spark 5 1440679986000 setDuration task end
+0object spark 1 1440680025000 setDuration task end
+0object spark 3B 1440680025809 objectOn object on
+0object spark 3 1440680029988 getDuration 3:120000
+0object spark 3B 1440680056768 objectOn object on
+0object spark 3B 1440680061682 objectOn object on
+0object spark 3 1440680066694 getDuration 3:120000
+0object spark 4A 1440680081487 objectOn object on
+0object spark 3B 1440680126246 objectOn object on
+0object spark 3B 1440680130857 objectOn object on
+0object spark 1B 1440680176600 objectOn object on
+0object spark 1 1440680181011 getDuration 1:120000
+0object spark 4A 1440680204972 objectOn object on
+0object spark 4A 1440680254301 objectOn object on
+0object spark 4A 1440680298325 objectOn object on
+0User hile 1440718438627 login connected
+0User hile 1440718937118 goOut go Out
+0User hile 1440718937119 setWakeUp set wake up
+0User hile 1440718937119 setGoOut set go out
+0User Hila 1440719074156 login connected
+0User Hila 1440719108371 goOut go Out
+0User Hila 1440719108371 setWakeUp set wake up
+0User Hila 1440719108371 setGoOut set go out
+0User Hila 1440719114468 setGoOut set go out
+0User Hila 1440719123020 setGoOut set go out
+0user 55df76a12da56a4934000052 1440719418961 updateTask updated
+0user 55df76a12da56a4934000052 1440719419191 updateTask updated
+0user 55df76a12da56a4934000052 1440719419203 updateTask updated
+0user 55df76a12da56a4934000052 1440719419216 updateTask updated
+0user 55df76a12da56a4934000052 1440719419228 updateTask updated
+0user 55df76a12da56a4934000052 1440719683410 updateTask updated
+0user 55df76a12da56a4934000052 1440719683419 updateTask updated
+0user 55df76a12da56a4934000052 1440719683744 updateTask updated
+0user 55df76a12da56a4934000052 1440719683755 updateTask updated
+0user 55df76a12da56a4934000052 1440719683767 updateTask updated
+0User ori 1440719829565 login connected
+0user 55debd541829ca9133000001 1440719850874 updateTask updated
+0user 55debd541829ca9133000001 1440719850884 updateTask updated
+0user 55debd541829ca9133000001 1440719850896 updateTask updated
+0user 55debd541829ca9133000001 1440719850927 updateTask updated
+0user 55debd541829ca9133000001 1440719851332 updateTask updated
+0user 55debd541829ca9133000001 1440719851344 updateTask updated
+0object spark 2B 1440719918434 objectOn object on
+0object spark 2B 1440719967943 objectOn object on
+0object spark 2B 1440719995127 objectOn object on
+0object spark 2 1440720000092 getDuration 2:120000
+0object spark 2 1440720053000 setDuration task end
+0User oshri 1440754991800 login connected
+0object spark 1A 1440755095439 objectOn object on
+0User ori 1440755100397 login connected
+0object spark 1A 1440755143374 objectOn object on
+0object spark 5A 1440755161207 objectOn object on
+0object spark 5 1440755166258 getDuration 5:-1
+0object spark 1A 1440755185195 objectOn object on
+0object spark 1 1440755190714 getDuration 1:-1
+0object spark 1 1440755195325 getDuration 1:-1
+0object spark 5A 1440755203885 objectOn object on
+0object spark 5 1440755208911 getDuration 5:-1
+0User Hila 1440755243375 login connected
+0user 55df76a12da56a4934000052 1440755304299 updateTask updated
+0user 55df76a12da56a4934000052 1440755304325 updateTask updated
+0user 55df76a12da56a4934000052 1440755304347 updateTask updated
+0user 55df76a12da56a4934000052 1440755304380 updateTask updated
+0user 55df76a12da56a4934000052 1440755304399 updateTask updated
+0user 55df76a12da56a4934000052 1440755401365 updateTask updated
+0user 55df76a12da56a4934000052 1440755401395 updateTask updated
+0user 55df76a12da56a4934000052 1440755401427 updateTask updated
+0user 55df76a12da56a4934000052 1440755401456 updateTask updated
+0user 55df76a12da56a4934000052 1440755401467 updateTask updated
+0object spark 5A 1440755433376 objectOn object on
+0object spark 1A 1440755435707 objectOn object on
+0object spark 5 1440755438624 getDuration 5:300000
+0object spark 1A 1440755440963 objectOn object on
+0object spark 1 1440755446003 getDuration 1:420000
+0object spark 6B 1440755532472 objectOn object on
+0object spark 6B 1440755537589 objectOn object on
+0object spark 6 1440755542391 getDuration 6:120000
+0object spark 6 1440755670000 setDuration task end
+0object spark 1B 1440755788311 objectOn object on
+0object spark 1 1440755793446 getDuration 1:120000
+0User ori 1440755844931 login connected
+0object spark 1 1440755915000 setDuration task end
+0object spark 1A 1440755917515 objectOn object on
+0object spark 5 1440756232000 setDuration task end
+0object spark 1 1440756312000 setDuration task end
+0object spark 3B 1440756862631 objectOn object on
+0object spark 3B 1440756866091 objectOn object on
+0object spark 3B 1440756871095 objectOn object on
+0object spark 3B 1440756875983 objectOn object on
+0object spark 3 1440756880968 getDuration 3:120000
+0object spark 3 1440757621000 setDuration task end
+0object spark 2A 1440761089933 objectOn object on
+0object spark 2A 1440761135580 objectOn object on
+0object spark 2A 1440761162865 objectOn object on
+0object spark 2A 1440761223251 objectOn object on
+0object spark 2 1440761228142 getDuration 2:360000
+0object spark 2 1440762225000 setDuration task end
+0object spark 1C 1441892082960 objectOn object on
+0object spark 1 1441892087375 getDuration 1:-1
+0object spark 1C 1441892123478 objectOn object on
+0object spark 1 1441892128565 getDuration 1:-1
+0object spark 1C 1441892568677 objectOn object on
+0object spark 1 1441892574278 getDuration 1:-1
+0object spark 1C 1441893033072 objectOn object on
+0object spark 1 1441893036412 getDuration 1:-1
+0object spark 1C 1441893178259 objectOn object on
+0object spark 1 1441893182414 getDuration 1:-1
+0object spark 1C 1441893390072 objectOn object on
+0object spark 1 1441893397005 getDuration 1:-1
+0object spark 1C 1441893616230 objectOn object on
+0object spark 1 1441893620102 getDuration 1:-1
+0User ori 1441894680394 login connected
+0User ori 1441894702140 goOut go Out
+0User ori 1441894702141 setWakeUp set wake up
+0User ori 1441894702141 setGoOut set go out
+0User osh 1441894861110 login connected
+0object spark 2C 1441894878011 objectOn object on
+0object spark 2 1441894882915 getDuration 2:-1
+0User osh 1441894896693 goOut go Out
+0User osh 1441894896694 setWakeUp set wake up
+0User osh 1441894896694 setGoOut set go out
+0object spark 2C 1441894907668 objectOn object on
+0object spark 2 1441894912312 getDuration 2:-1
+0object spark 2 1441894917206 getDuration 2:-1
+0user 55f167304437162a52000006 1441894933989 updateTask updated
+0user 55f167304437162a52000006 1441894933993 updateTask updated
+0user 55f167304437162a52000006 1441894933996 updateTask updated
+0user 55f167304437162a52000006 1441894934002 updateTask updated
+0user 55f167304437162a52000006 1441894934007 updateTask updated
+0user 55f167304437162a52000006 1441894934713 updateTask updated
+0user 55f167304437162a52000006 1441894940015 updateTask updated
+0user 55f167304437162a52000006 1441894940018 updateTask updated
+0user 55f167304437162a52000006 1441894940022 updateTask updated
+0user 55f167304437162a52000006 1441894940024 updateTask updated
+0user 55f167304437162a52000006 1441894940027 updateTask updated
+0user 55f167304437162a52000006 1441894940650 updateTask updated
+0object spark 1C 1441894964826 objectOn object on
+0object spark 1C 1441894969613 objectOn object on
+0object spark 5C 1441894997591 objectOn object on
+0object spark 5 1441895002884 getDuration 5:120000
+0object spark 5 1441895007618 getDuration 5:120000
+0object spark 5 1441895026000 setDuration task end
+0object spark 2C 1441895096649 objectOn object on
+0object spark 2 1441895100548 getDuration 2:120000
+0object spark 2A 1441895160681 objectOn object on
+0user 55f166df4437162a52000001 1441895195898 updateTask updated
+0user 55f166df4437162a52000001 1441895196135 updateTask updated
+0user 55f166df4437162a52000001 1441895196151 updateTask updated
+0user 55f166df4437162a52000001 1441895196154 updateTask updated
+0user 55f166df4437162a52000001 1441895196158 updateTask updated
+0user 55f166df4437162a52000001 1441895196162 updateTask updated
+0user 55f166df4437162a52000001 1441895201061 updateTask updated
+0user 55f166df4437162a52000001 1441895201068 updateTask updated
+0user 55f166df4437162a52000001 1441895201078 updateTask updated
+0user 55f166df4437162a52000001 1441895201098 updateTask updated
+0user 55f166df4437162a52000001 1441895201106 updateTask updated
+0user 55f166df4437162a52000001 1441895201113 updateTask updated
+0object spark 2A 1441895256325 objectOn object on
+0object spark 2A 1441895337662 objectOn object on
+0object spark 2 1441895341736 getDuration 2:120000
+0object spark 2 1441895346720 getDuration 2:120000
+0object spark 2C 1441895357098 objectOn object on
+0object spark 2 1441895361874 getDuration 2:120000
+0object spark 2 1441895425000 setDuration task end
+0object spark 5C 1441895466767 objectOn object on
+0object spark 5 1441895470243 getDuration 5:-1
+0object spark 5C 1441895543820 objectOn object on
+0object spark 5 1441895547809 getDuration 5:-1
+0user 55f166df4437162a52000001 1441895583253 updateTask updated
+0user 55f166df4437162a52000001 1441895583274 updateTask updated
+0user 55f166df4437162a52000001 1441895583280 updateTask updated
+0user 55f166df4437162a52000001 1441895583281 updateTask updated
+0user 55f166df4437162a52000001 1441895583924 updateTask updated
+0user 55f166df4437162a52000001 1441895583929 updateTask updated
+0object spark 5C 1441895651022 objectOn object on
+0object spark 5 1441895655246 getDuration 5:-1
+0object spark 2A 1441896626594 objectOn object on
+0object spark 2A 1441896725590 objectOn object on
+0object spark 2A 1441896729343 objectOn object on
+0object spark 2 1441896734359 getDuration 2:120000
+0object spark 2 1441896769000 setDuration task end
+0user 55f166df4437162a52000001 1441896803849 updateTask updated
+0user 55f166df4437162a52000001 1441896803869 updateTask updated
+0user 55f166df4437162a52000001 1441896803872 updateTask updated
+0user 55f166df4437162a52000001 1441896803874 updateTask updated
+0user 55f166df4437162a52000001 1441896804429 updateTask updated
+0user 55f166df4437162a52000001 1441896804431 updateTask updated
+0object spark 2A 1441896837341 objectOn object on
+0object spark 2A 1441896841249 objectOn object on
+0object spark 2 1441896846485 getDuration 2:120000
+0object spark 2 1441896902000 setDuration task end
