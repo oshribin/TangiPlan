@@ -70,9 +70,6 @@ var User = Backbone.Model.extend({
 	checked: function(){
 		var userid = this.get("_id");
 		return app.taskList.where({userid:userid, checked:true});
-
-
-		
 	},
 
 	clUsageInc: function(){

@@ -180,24 +180,23 @@ var SetDuration_page = Backbone.View.extend({
 
 	build: function(){
 		var _iterator = function(task){
-			var id = task.get("lastObjectId") ? task.get("lastObjectId") : task.get("objectId");
+			var id = task.get("objectId");
 			return id;
 		};
 		var checked = this.model.checked();
-		var sortChecked = _.chain(checked).sortBy(_iterator);
 		var numbers = [6,5,4,3,2,1];
 
 
-		_.chain(sortChecked).each(function(task){
-			if(task.get("lastObjectId")){
+		_.chain( checked ).each(function(task){
+			if( task.get("lastObjectId") ) {
 				numbers = _.reject(numbers,function(num){
 					return num == task.get("lastObjectId");
 				});
 			}
 		});
+
 		var viewList = [];
-		console.log(sortChecked);
-		sortChecked.each(function(task){
+		_.chain( checked ).each(function(task){
 			if(task.get("lastObjectId")){
 				task.set({objectId:task.get("lastObjectId")});
 				var cur = task.get("lastObjectId");
@@ -206,53 +205,19 @@ var SetDuration_page = Backbone.View.extend({
 				var cur = numbers.pop();
 				task.set({objectId:cur});
 			}
+		});
+
+		var sortchecked = _.chain( checked ).sortBy( _iterator );
+
+		sortchecked.each( function ( task ) {
+			var cur = task.get("objectId");
 			var oneView = new SetDuration_single({model:task, attributes:{objectId:cur}});
 			this.$(".setList").append(oneView.render().el);
 			viewList.push(oneView);
-		});
+		})
 		
 		this.viewList = viewList;
 		app.user.updateLeft();
-
-		/*this.timeBar();
-		this.listenTo(this.model, "change", this.timeBar);*/
-	
 	},
-
-	/*timeBar: function(){
-		var data = this.viewList;
-		var colors = ["blue","yellow","green","cyan","pink","purple"]
-		var cont = d3.select(".timeBar")
-					 .html("")
-					 .attr("width",1110);
-
-		cont.selectAll("rect")
-			.data(data)
-			.enter()
-			.append("rect")
-			.attr("x",function(d,i){
-				console.log(i);
-				if(data[i-1] != null){
-					d.x = app.user.parsMill(data[i-1].model.get("givDuration"))/1000 + data[i-1].x;
-					return d.x;
-				}
-				else{
-					d.x = 0;
-					return d.x;
-				}
-
-			})
-			.attr("y",0)
-			.attr("height",20)
-			.attr("width",function(d){
-				return app.user.parsMill(d.model.get("givDuration"))/1000;
-			})
-			.style("fill",function(d){
-				return colors[d.model.get("objectId")-1];
-			});
-
-
-
-	}*/
 
 });

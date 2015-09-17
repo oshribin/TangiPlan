@@ -21,7 +21,10 @@ var placeObject_page = Backbone.View.extend({
 
 	build: function(){
 		var checked = _.chain(app.taskList
-		.where({userid:this.model.get("_id"),checked:true}));
+		.where({userid:this.model.get("_id"),checked:true}))
+		.sortBy( function ( task ) {
+			 return task.get( "objectId" );
+		});
 
 		checked.each(function(task){
 			this.$(".placeList").append("<li><span>" +  task.get("name") + "</span><span style = 'float:right; margin-left:15px;'>"  + task.get("objectId") + "</span></li>");

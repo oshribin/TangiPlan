@@ -24,9 +24,6 @@ var CheckList_page = Backbone.View.extend({
 		this.$("svg").show();
 	},
 
-
-
-
 	initialize: function(){
 		var compiled = Handlebars.compile($("#titleBar").html());
 		var title = compiled({title:"מעקב בוקר"});
@@ -45,9 +42,9 @@ var CheckList_page = Backbone.View.extend({
 
 
 		var _iterator = function(task){
-			var x = task.get("lastDate") != null ? Date.parse(task.get("lastDate")) : 0;
+			var x = task.get("lastDate") != null ? Date.parse(task.get("lastDate")) : task.get( "objectId" );
 			if(!task.get("exDuration"))
-				x = Infinity;
+				x = task.get( "objectId" );
 			return x;
 		};
 
