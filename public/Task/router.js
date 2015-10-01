@@ -44,7 +44,8 @@ var Router = Backbone.Router.extend({
 		},
 
 		Debug: function(){
-			if(app.user){
+			console.log( app.user )
+			if(app.user && app.user.get( "role" ) == "Admin" ) {
 				var view = new Debug();
 				app.render(view);
 			}

@@ -42,6 +42,7 @@ var User = Backbone.Model.extend({
 		return{
 			name:"",
 			pass:"",
+			role:"",
 			wakeUp:"07:00",
 			goOut:"08:00",
 			timeLeft:"",

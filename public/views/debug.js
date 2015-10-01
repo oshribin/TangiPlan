@@ -1,52 +1,81 @@
-var Debug = Backbone.View.extend({
+	var Debug = Backbone.View.extend({
 
 	template: Handlebars.compile($("#debug").html()),
 
 	events: {
 		"click .ok":"create",
 		"click .status":"status",
-		"click .clear":"clear"
+		"click .delete":"delete"
 
 	},
 
-	clear: function(){
-		_.each(_.clone(app.taskList.models), function(model) {
-  			model.destroy()});
-	},
 
 	status: function(){
 		this.$(".cont").html("");
-		app.taskList.fetch();
-		app.taskList.each(function(task){
+		app.userList.fetch();
+		app.userList.each(function( user ){
 			this.$(".cont").append("<li>"+
-					"name:"+task.get("name")+"---"+
-					"object number:"+task.get("objectId")+"---"+
-					"givDuration:"+task.get("givDuration")+"---"+
-					"exDuration:"+task.get("exDuration")+"----"+
-					"flag:"+task.get("endedByUser")+"</li>");
+					"name:"+user.get("name")+"---"+
+					"set id:"+user.get("set_id")+"---"+
+					"role:"+user.get("role")+"</li>");
 		});
 	},
 
 	create: function() {
-		var userid = app.user.get("_id");
 		var name = this.$(".name").val();
-		var objectId = this.$(".object").val();
-		var givDuration = this.$(".duration").val();
-		app.taskList.create({
-			"name":name,
-			"objectId":objectId,
-			"givDuration":givDuration,
-			"userid":userid
+		var set_id = this.$(".set").val();
+		var pass = this.$(".password").val();
+
+		var isExist = app.userList.findWhere({
+			"set_id":set_id
 		});
 
-		this.$(".name").val("");
-		this.$(".object").val("");
-		this.$(".duration").val("");
+		if ( ! name.length || ! set_id.length || ! pass.length ) {
+
+			alert( "please fill up all the field" )
+
+		} else if ( isExist ) {
+
+			alert( "user with this set id is already exist" )
+
+		} else {
+
+			app.userList.create({
+				"name":name,
+				"set_id":set_id,
+				"pass":pass,
+				"role":"user",
+			});
+
+			this.$(".name").val("");
+			this.$(".set").val("");
+			this.$(".password").val("");
+			
+		}
 
 	},
 
+	delete: function() {
+		var name = this.$(".name").val();
+		var set_id = this.$(".set").val();
+		var pass = this.$(".password").val();
+
+		var user = app.userList.findWhere({
+			"name":name,
+			"set_id":set_id,
+			"pass":pass,
+			"role":"user",
+		});
+
+		if ( user ) {
+
+			user.destroy();
+		} else {
+			alert( "this user does not exist" )
+		}
+	},
+
 	initialize:function(){
-		app.taskList.fetch();
 		this.$el.append(this.template());
 
 	},

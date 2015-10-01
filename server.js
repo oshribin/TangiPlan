@@ -61,7 +61,6 @@ router.route("/getDuration/:set_id/:object_id")
 		req.session = null;
 		Task.findOne({objectId:req.params.object_id, set_id:req.params.set_id}, function(err, task){
 			if(err){
-				console.log( "1");
 				//eror while looking for task
 				logger({entity:"object spark",
 						name:req.params.object_id,
@@ -75,7 +74,6 @@ router.route("/getDuration/:set_id/:object_id")
 			}
 
 			else if(task && task.givDuration){
-				console.log("2");
 				res.send(task.objectId+":"+parsMill(task.givDuration));
 				//succeed to send task
 				logger({entity:"object spark",
@@ -88,7 +86,6 @@ router.route("/getDuration/:set_id/:object_id")
 						});
 			}
 			else{
-				console.log( "3" )
 				res.send(req.params.object_id +":"+ -1);
 				//there is no task
 				logger({entity:"object spark",
@@ -231,11 +228,11 @@ router.get("/objectOn/:set_id/:objectId/:timeStamp", function(req, res){
 	logger({entity:"object spark",
 			name:req.params.objectId + req.params.set_id,
 			date: Date.now() + timeOffset,
-			request: "/objectOn/" + req.params.objectId + "/" + req.set_id + "/" + req.params.timeStamp,
+			request: "/objectOn/" + req.params.objectId + "/" + req.params.set_id + "/" + req.params.timeStamp,
 			action: "objectOn",
 			result: "object on",
 			set_id: req.params.set_id,
-			});
+	});
 });
 
 router.route("/users")
@@ -244,6 +241,8 @@ router.route("/users")
 		var user = new User({
 			name: req.body.name,
 			pass: req.body.pass,
+			set_id: req.body.set_id,
+			role: req.body.role,
 		});
 
 		user.save(function(err){
@@ -291,15 +290,19 @@ router.route("/users/:user_id")
 				user.arangeTime = req.body.arangeTime;
 				user.actGoOut = req.body.actGoOut;
 				user.endToArange = req.body.endToArange;
+				user.role = req.body.role;
 
 				user.save(function(err,user){
 					if(err)
 						res.send(err)
 					else if(user){
 						if(new Date(lastGoOut).getTime() != new Date(user.actGoOut).getTime()){
+							var date = Date.now() + timeOffset;
+
 							logger({entity:"User",
 								name:user.name,
-								date: Date.now() + timeOffset,
+								date: date,
+								time: new Date( date ).toISOString().split( "T" )[ 1 ],
 								request: "/User/" + req.params.user_id,
 								action: "goOut",
 								result: "go Out",
@@ -313,7 +316,7 @@ router.route("/users/:user_id")
 								request: "/User/" + req.params.user_id,
 								action: "setWakeUp",
 								result: "set wake up",
-								wakeUp:user.wakeUp,
+								wakeUp: user.wakeUp,
 								set_id: user.set_id,
 								});
 							}
@@ -337,6 +340,17 @@ router.route("/users/:user_id")
 				});
 			}
 		});
+	})
+
+	.delete(function(req, res){
+		User.remove({
+			_id: req.params.user_id
+		}, function(err, user){
+			if(err)
+				res.send(err)
+			res.json({message:user+"removed successfully"});
+		});
+		
 	});
 
 
@@ -673,10 +687,6 @@ router.route("/tasks/:task_id")
 			}
 		});
 	}
-
-
-
-
 
 
 app.use("/TangiPlan", router);

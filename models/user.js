@@ -12,6 +12,7 @@ var userSchema = new Schema({
 			actGoOut:Date,
 			endToArange:String,
 			pass:String,
+			role:String,
 
 });
 

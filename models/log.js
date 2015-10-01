@@ -23,6 +23,7 @@ var logSchema = new Schema({
 			goOut:String,
 			taskDate:String,
 			set_id:String,
+			time: String,	
 });
 
 module.exports = mongoose.model("log",logSchema);
