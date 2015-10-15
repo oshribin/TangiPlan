@@ -43,6 +43,9 @@
 	},
 
 	btncntrl: function(){
+		var compiled = Handlebars.compile($("#titleBar").html());
+		var title = compiled({title:"TangiPlan", name: app.user ? app.user.get( "name" ) : null });
+		this.$(".title-bar").html( title )
 		this.$(".login").remove();
 		this.$(".message").remove();
 		this.$("h1").show();
@@ -56,7 +59,7 @@
 
 	initialize: function(){
 		var compiled = Handlebars.compile($("#titleBar").html());
-		var title = compiled({title:"TangiPlan"});
+		var title = compiled({title:"TangiPlan", name: app.user ? app.user.get( "name" ) : null });
 		this.$el.html(title);
 		this.$el.append(this.template);
 		this.$(".btn").hide();

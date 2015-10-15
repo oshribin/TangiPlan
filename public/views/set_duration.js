@@ -91,7 +91,7 @@ var SetDuration_page = Backbone.View.extend({
 	initialize: function(){
 		var back = app.last === "signIn" ? "לעמוד הבית" : "לתכנון משימות";
 		var comTitle = Handlebars.compile($("#titleBar").html());
-		var title = comTitle({title:"הגדר זמנים"});
+		var title = comTitle({title:"הגדר זמנים", name: app.user.get( "name" )});
 		var comNav = Handlebars.compile($("#bottom-nav").html());
 		var nav = comNav({end:"עדכן משימות"});
 		var loader = Handlebars.compile($("#loader").html());

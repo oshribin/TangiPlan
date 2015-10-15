@@ -108,7 +108,19 @@ var Router = Backbone.Router.extend({
 
 var App = Backbone.View.extend({
 
+	events:{
+		"click .logOut": "logOut",
+	},
+
 	user: null,
+
+	logOut: function () {
+		$.get( "/logOut", function ( req, res ) {
+			delete this.user;
+			this.router.navigate( "logout" );
+			this.router.navigate( "", { trigger: true } );
+		}.bind( this ) )
+	},
 
 	initialize: function(){
 		this.userList = new Users;

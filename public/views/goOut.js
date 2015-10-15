@@ -32,7 +32,7 @@ var GoOut_page = Backbone.View.extend({
 
 	initialize: function(){
     var comTitle = Handlebars.compile($("#titleBar").html());
-    var title = comTitle({title:"שעת יציאה"});
+    var title = comTitle({title:"שעת יציאה", name: app.user.get( "name" )});
     var comNav = Handlebars.compile($("#bottom-nav").html());
     var nav = comNav();
 

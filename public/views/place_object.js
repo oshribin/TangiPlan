@@ -12,7 +12,7 @@ var placeObject_page = Backbone.View.extend({
 
 	initialize: function () {
 		var comTitle = Handlebars.compile($("#titleBar").html());
-		var title = comTitle({title: "מיקום אובייקטים"});
+		var title = comTitle({title: "מיקום אובייקטים", name: app.user.get( "name" )});
 		this.$el.html(title);
 		this.$el.append(this.template);
 		this.build = _.bind(this.build,this);

@@ -165,6 +165,10 @@ app.get("/currentUser", function(req,res){
 	}
 });
 
+app.get( "/logOut", function ( req, res ){
+	req.logout()
+	res.send( "logOut" );
+});
 
 app.post('/login',
   passport.authenticate('local', {
@@ -690,5 +694,5 @@ router.route("/tasks/:task_id")
 
 
 app.use("/TangiPlan", router);
-app.listen("80");
+app.listen("8080");
 console.log("walla");

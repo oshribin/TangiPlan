@@ -32,6 +32,10 @@ body{
 	margin-top: 3px;
 }
 
+.titleButtons{
+	float: left;
+}
+
 .title-bar{
 	background-color: #3d4fa6;
 	position: relative;
@@ -513,6 +517,7 @@ input{
 }
 
 .homeNav{
+	margin-right: 30px;
 
 }
 

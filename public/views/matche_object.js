@@ -53,7 +53,7 @@
 
 	initialize: function (){
 		var comTitle = Handlebars.compile($("#titleBar").html());
-		var title = comTitle({title:"התאם משימות לאובייקטים ?"});
+		var title = comTitle({title:"התאם משימות לאובייקטים ?", name: app.user.get( "name" )});
 		var comNav = Handlebars.compile($("#bottom-nav").html());
 		var nav = comNav();
 

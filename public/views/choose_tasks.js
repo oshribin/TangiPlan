@@ -79,7 +79,7 @@ var ChooseTaskView_page = Backbone.View.extend({
 
 	initialize: function(){
 		var comTitle = Handlebars.compile($("#titleBar").html());
-		var title = comTitle({title:"בנק משימות"});
+		var title = comTitle({title:"בנק משימות", name: app.user.get( "name" )});
 		var comNav = Handlebars.compile($("#bottom-nav").html());
 		var nav = comNav();
 

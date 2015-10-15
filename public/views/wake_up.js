@@ -28,7 +28,7 @@ var WakeUp_page = Backbone.View.extend({
 
 	render: function(){
 		var comTitle = Handlebars.compile($("#titleBar").html());
-		var title = comTitle({title:"שעת השקמה"});
+		var title = comTitle({title:"שעת השקמה", name: app.user.get( "name" )});
 		var comNav = Handlebars.compile($("#bottom-nav").html());
 		var nav = comNav();
 

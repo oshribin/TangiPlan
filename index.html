@@ -147,10 +147,20 @@
         <script id = "titleBar" type="text/x-handlebars-template">
           <div class = "row">
             <div class = "title-bar col-md-12 col-xs-12">
-             <div class = "title col-xs-offset-4 col-xs-4">
-                {{title}}
-             </div>
+            <div class = "titleButtons col-xs-2"> 
+            {{# if name }}
+              <span class = "col-xs-2 col-xs-offset-1 glyphicon glyphicon-log-out logOut"></span>
+            {{/ if}}
               <span class = "col-xs-offset-2 col-xs-2 glyphicon glyphicon-home homeNav"></span>
+            </div>
+             <div class = "title col-md-offset-2 col-xs-4">
+                {{title}}
+             </div> 
+            {{#if name }}
+            <div class = "title col-xs-4">
+                !{{name}} שלום
+             </div>
+             {{/ if}} 
             </div>
           </div>   
         </script>

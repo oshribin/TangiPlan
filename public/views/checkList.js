@@ -26,7 +26,7 @@ var CheckList_page = Backbone.View.extend({
 
 	initialize: function(){
 		var compiled = Handlebars.compile($("#titleBar").html());
-		var title = compiled({title:"מעקב בוקר"});
+		var title = compiled({title:"מעקב בוקר", name: app.user.get( "name" ) });
 		this.$el.html(title);
 		this.$el.append(this.template);
 		var loader = Handlebars.compile($("#loader").html());
