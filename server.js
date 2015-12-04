@@ -454,15 +454,14 @@ router.route("/setDuration/:set_id/:object_id/:ex_duration/:flag")
 											action: "setDuration",
 											result:"task end",
 											taskName: task.name,
-											givDuration: task.givDuration,
-											exDuration: task.exDuration,
-											exception: task.exception,
+											givDuration: Math.round( parsMill( task.givDuration )/1000 ),
+											exDuration: Math.round( parsMill( task.exDuration )/1000 ),
+											exception: Math.round( _millexception / 1000 ),
 											endedByUser: req.params.flag,
 											overexcep: task.overexcep,
 											userid: user._id,
 											set_id: req.params.set_id,
-											exFreeTime: task.exFreeTime,
-											givFreeTime: task.givFreeTime,
+											givFreeTime: Math.round( task.givFreeTime ),
 											endTime: getHMS(task.lastDate),
 											startTime: calcTime(task.lastDate, task.exDuration),		
 											wakeUp: user.wakeUp, 
@@ -623,7 +622,8 @@ router.route("/tasks/:task_id")
 				if(prev){
 					otp = Date.parse(prev.lastDate);
 					tp = Date.parse(task.lastDate);
-					var freeTime = parseVal(tp - otp - parsMill(task.exDuration));
+                    var _millFreeTime = tp - op - parsMill( task.exDuration );
+					var freeTime = parseVal(_millFreeTime);
 					prev.exFreeTime = freeTime;
 					prev.save(function(err,prev){
 						if (err)
@@ -635,7 +635,7 @@ router.route("/tasks/:task_id")
 									console.log(err);
 								else if(log){
 									console.log("hay");
-									log.exFreeTime = freeTime;
+									log.exFreeTime = Math.round( _millFreeTime / 1000 );
 									log.save(function(err, log){
 										if(err)
 											console.log(err);
