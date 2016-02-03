@@ -2,8 +2,8 @@ var mongoose = require("mongoose");
 var Schema = mongoose.Schema;
 
 var logSchema = new Schema({
+			object_id: String,
 			entity: String,
-			name: String,
 			date:String,
 			request:Object,
 			action:String,
@@ -14,7 +14,7 @@ var logSchema = new Schema({
 			exception:String,
 			endedByUser:Boolean,
 			overexcep: Boolean,
-			userid:String,
+			user_id:String,
 			exFreeTime:String,
 			givFreeTime:String,
 			endTime:String,

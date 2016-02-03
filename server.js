@@ -9,6 +9,7 @@ var Log = require("./models/log");
 var User = require("./models/user");
 var UserLog = require("./models/userlog");
 var _ = require("underscore");
+var extend = require( "extend" );
 var passport = require("passport");
 var LocalStrategy = require("passport-local").Strategy;
 var csv = require("fast-csv");
@@ -20,6 +21,7 @@ var hour = date.getHours();
 var minutes = date.getMinutes();
 var hoursOffset = (24 + (restartTime - hour)) % 24;
 var interval = hoursOffset*3600000 - minutes*60000;
+
 setTimeout(function(){
 	setInterval(taskReset,24*3600000);
 	}, interval);
@@ -55,47 +57,44 @@ router.get("/object_filter/:action/:object_id/:from/:untill", function(req, res)
 
 
 router.route("/getDuration/:set_id/:object_id")
-	
+	.use( function( req, res, next ) {
+		User.findOne( { set_id: req.params.set_id } )
+			.sort("dateJoined")
+			.find( function( err, user) {
+				req.user = user;
+				next();
+			})
+	})
+
 	.get(function(req, res){
-		console.log( req.params );
+		var row = ({
+			entity:"object spark",
+			object_id:req.params.object_id,
+			date: Date.now() + timeOffset,
+			request: "/getDuration/" + req.params.set_id "/" + req.params.object_id,
+			action: "getDuration",
+			set_id: req.params.set_id,
+			user_id: req.user.name;
+		})
 		req.session = null;
 		Task.findOne({objectId:req.params.object_id, set_id:req.params.set_id}, function(err, task){
 			if(err){
 				//eror while looking for task
-				logger({entity:"object spark",
-						name:req.params.object_id,
-						date: Date.now() + timeOffset,
-						request: "/getDuration/"+req.params.object_id,
-						action: "getDuration",
-						result:"error",
-						set_id: req.params.set_id,
-						});
+				row.result = "error[ task didnt found for this request ]";
+				looger( row );
 				res.send(err);
 			}
 
 			else if(task && task.givDuration){
 				res.send(task.objectId+":"+parsMill(task.givDuration));
-				//succeed to send task
-				logger({entity:"object spark",
-						name:req.params.object_id,
-						date: Date.now() + timeOffset,
-						request: "/getDuration/"+req.params.object_id,
-						action: "getDuration",
-						result: task.objectId+":"+parsMill(task.givDuration),
-						set_id: req.params.set_id,
-						});
+				row.result = task.objectId+":"+parsMill(task.givDuration);
+				logger( row );
 			}
 			else{
 				res.send(req.params.object_id +":"+ -1);
 				//there is no task
-				logger({entity:"object spark",
-						name:req.params.object_id,
-						date: Date.now() + timeOffset,
-						request: "/getDuration/"+req.params.object_id,
-						action: "getDuration",
-						result: req.params.object_id +":"+ -1,
-						set_id: req.params.set_id,
-						});
+				row.result = req.params.object_id +":"+ -1;
+				looger( row );
 			}
 		});
 	});
@@ -184,7 +183,7 @@ app.get('/loginFailure', function(req, res, next) {
 app.get('/loginSuccess', function(req, res, next) {
   res.send('Successfully authenticated');
   				logger({entity:"User",
-						name:req.session.passport.user.name,
+						user_id: req.session.passport.user.name,
 						date: Date.now() + timeOffset,
 						request: "/login",
 						action: "login",
@@ -225,19 +224,28 @@ passport.use(new LocalStrategy(function(username, password,done){
 
 router.use("/public", express.static("public"));
 
-router.get("/objectOn/:set_id/:objectId/:timeStamp", function(req, res){
-	console.log( req.params );
-	req.session = null;
-	res.send("o");
-	logger({entity:"object spark",
-			name:req.params.objectId + req.params.set_id,
-			date: Date.now() + timeOffset,
-			request: "/objectOn/" + req.params.objectId + "/" + req.params.set_id + "/" + req.params.timeStamp,
-			action: "objectOn",
-			result: "object on",
-			set_id: req.params.set_id,
+router.route("/objectOn/:set_id/:objectId/:timeStamp")
+	.use( function( req, res, next ) {
+		User.findOne( { set_id: req.params.set_id } )
+		.sort("dateJoined")
+		.find( function( err, user) {
+		req.user = user;
+				next();
+			})
+	})
+	.get( function(req, res){
+		req.session = null;
+		res.send("o");
+		logger({entity:"object spark",
+				name:req.params.objectId + req.params.set_id,
+				date: Date.now() + timeOffset,
+				request: "/objectOn/" + req.params.objectId + "/" + req.params.set_id + "/" + req.params.timeStamp,
+				action: "objectOn",
+				result: "object on",
+				set_id: req.params.set_id,
+				user_id: req.user.name
+		});
 	});
-});
 
 router.route("/users")
 
@@ -304,7 +312,7 @@ router.route("/users/:user_id")
 							var date = Date.now() + timeOffset;
 
 							logger({entity:"User",
-								name:user.name,
+								user_id:user.name,
 								date: date,
 								time: new Date( date ).toISOString().split( "T" )[ 1 ],
 								request: "/User/" + req.params.user_id,
@@ -315,7 +323,7 @@ router.route("/users/:user_id")
 							}
 						if(lastwakeUp != user.wakeUp){
 								logger({entity:"User",
-								name:user.name,
+								user_id:user.name,
 								date: Date.now() + timeOffset,
 								request: "/User/" + req.params.user_id,
 								action: "setWakeUp",
@@ -326,7 +334,7 @@ router.route("/users/:user_id")
 							}
 						if(lastSetGoOut != user.goOut){
 								logger({entity:"User",
-								name:user.name,
+								user_id:user.name,
 								date: Date.now() + timeOffset,
 								request: "/User/" + req.params.user_id,
 								action: "setGoOut",
@@ -336,8 +344,6 @@ router.route("/users/:user_id")
 								});
 
 						}		
-
-
 
 						res.json(user);
 					}
@@ -390,18 +396,29 @@ router.route("/tasks")
 
 router.route("/setDuration/:set_id/:object_id/:ex_duration/:flag")
 
+	.use( function( req, res, next ) {
+		User.findOne( { set_id: req.params.set_id } )
+			.sort("dateJoined")
+			.find( function( err, user) {
+				req.user = user;
+				next();
+			})
+	})
 	.get(function(req, res){
 		req.session = null;
+		var row = {
+			entity:"object spark",
+			objet_id: req.params.object_id,
+			date: Date.now()  + timeOffset,
+			request: "/setDuration/" + req.params.object_id + "/" + req.params.ex_duration + "/" + req.params.flag,
+			action: "setDuration",
+			user_id: req.user.name,
+			set_id: req.params.set_id,
+		}
+
 		Task.findOne({objectId:req.params.object_id, set_id:req.params.set_id}, function(err, task){
 			if(err){
-				logger({entity:"object spark",
-						name: req.params.object_id,
-						date: Date.now()  + timeOffset,
-						request: "/setDuration/" + req.params.object_id + "/" + req.params.ex_duration + "/" + req.params.flag,
-						action: "setDuration",
-						result: "error",
-						set_id: req.params.set_id,
-						});
+				row.result = "error[ task didnt found for this object ]",
 				res.send(err)
 			}
 			if(task){
@@ -418,63 +435,32 @@ router.route("/setDuration/:set_id/:object_id/:ex_duration/:flag")
 				task.objectId = null;
 				task.save(function(err, task){
 					if(err){
-						logger({entity:"object spark",
-								name: req.params.object_id,
-								date: lastDate,
-								request: "/setDuration/" + req.params.object_id + "/" + req.params.ex_duration + "/" + req.params.flag,
-								action: "setDuration",
-								result: "error",
-								set_id: req.params.set_id,
-								});
+						row.result = "error[ failed to save the task ]"
 						res.send(err)
 					}
-					else if(task){
-						
-						User.findOne({_id:task.userid}, function(err, user){
-							if(err){
-								logger({entity:"object spark",
-										name: req.params.object_id,
-										date: lastDate,
-										request:"/setDuration/" + req.params.object_id + "/" + req.params.ex_duration + "/" + req.params.flag,
-										action: "setDuration",
-										result: "error",
-										set_id: req.params.set_id,
-										});
-								res.send(err)
-							}
-
-							else if(user != null){
-									res.send("task end");
-									console.log("this is the response" + res + "end of response");
-									logger({entity:"object spark",
-											name: req.params.object_id,
-											username : user.name,
-											date: (lastDate-(lastDate%1000)),//ignoring milliseconds
-											request: "/setDuration/" + req.params.object_id + "/" + req.params.ex_duration + "/" + req.params.flag,
-											action: "setDuration",
-											result:"task end",
-											taskName: task.name,
-											givDuration: Math.round( parsMill( task.givDuration )/1000 ),
-											exDuration: Math.round( parsMill( task.exDuration )/1000 ),
-											exception: Math.round( _millexception / 1000 ),
-											endedByUser: req.params.flag,
-											overexcep: task.overexcep,
-											userid: user._id,
-											set_id: req.params.set_id,
-											givFreeTime: Math.round( task.givFreeTime ),
-											endTime: getHMS(task.lastDate),
-											startTime: calcTime(task.lastDate, task.exDuration),		
-											wakeUp: user.wakeUp, 
-											goOut: user.goOut,
-											taskDate: getYMD(task.lastDate),
-									},true,task);
-								}
-							});
-						}
-					});
-
+					else if(task && ( req.user != null ) ){
+						res.send("task end");
+						row.extend({
+							date: (lastDate-(lastDate%1000)),
+							result: "task end [ task is complete successfully ]",
+							taskName: task.name,
+							givDuration: Math.round( parsMill( task.givDuration )/1000 ),
+							exDuration: Math.round( parsMill( task.exDuration )/1000 ),
+							exception: Math.round( _millexception / 1000 ),
+							endedByUser: req.params.flag,
+							overexcep: task.overexcep,
+							user_id: req.user.name,
+							set_id: req.params.set_id,
+							givFreeTime: Math.round( task.givFreeTime ),
+							endTime: getHMS(task.lastDate),
+							startTime: calcTime(task.lastDate, task.exDuration),		
+							wakeUp: user.wakeUp, 
+							goOut: user.goOut,
+							taskDate: getYMD(task.lastDate),
+						})
+						logger( row, true, task );
+					}
 				}
-			});
 		});
 
 
@@ -526,7 +512,7 @@ router.route("/tasks/:task_id")
 		 				}
 
 		 				logger({entity:"user",
-								name: task.userid,
+								user_id: req.session.passport.user.name,
 								date: Date.now() + timeOffset,
 								request:"/tasks/" + req.params.task_id,
 								action: "updateTask",
