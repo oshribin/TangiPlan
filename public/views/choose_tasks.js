@@ -31,12 +31,12 @@ var ChooseTaskView_page = Backbone.View.extend({
 			app.taskList.each(function(task){
 				if ( ! task.get( "checked" ) ) {
 					task.set( { 
-						updated: false,
 						givDuration: null,
 						objectId: null,
 						givFreeTime: null,
 					})
 				}
+				task.set({ updated: false });
 				task.save(task.attributes, {success:nav});	
 			});
 		}
