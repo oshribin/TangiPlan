@@ -18,7 +18,7 @@ var Task = Backbone.Model.extend({
 			userid:null,
 			exFreeTime:null,
 			givFreeTime:null,
-
+			updated:null,
 		};	
 	},
 

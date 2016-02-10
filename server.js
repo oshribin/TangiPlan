@@ -40,7 +40,6 @@ app.use(passport.session());
 var router = express.Router();
 
 router.get("/object_filter/:action/:object_id/:from/:untill", function(req, res){
-	console.log(req.params.from);
 	Log.find({name:req.params.object_id, action:req.params.action,
 			 date:{$gte:req.params.from,
 			 	   $lte:req.params.untill}}, function(err, tasks){
@@ -56,45 +55,49 @@ router.get("/object_filter/:action/:object_id/:from/:untill", function(req, res)
 });
 
 
+
+
 router.route("/getDuration/:set_id/:object_id")
-	.use( function( req, res, next ) {
+	.all( function( req, res, next ) {
 		User.findOne( { set_id: req.params.set_id } )
 			.sort("dateJoined")
-			.find( function( err, user) {
-				req.user = user;
+			.find( function( err, users) {
+				req.user = users[ 0 ];
 				next();
 			})
 	})
 
-	.get(function(req, res){
+	.get( function(req, res ){
 		var row = ({
 			entity:"object spark",
 			object_id:req.params.object_id,
 			date: Date.now() + timeOffset,
-			request: "/getDuration/" + req.params.set_id "/" + req.params.object_id,
+			request: "/getDuration/" + req.params.set_id + "/" + req.params.object_id,
 			action: "getDuration",
 			set_id: req.params.set_id,
-			user_id: req.user.name;
+			user_id: req.user.name
 		})
 		req.session = null;
 		Task.findOne({objectId:req.params.object_id, set_id:req.params.set_id}, function(err, task){
 			if(err){
 				//eror while looking for task
 				row.result = "error[ task didnt found for this request ]";
-				looger( row );
+				row.taskName = task.name;
+				logger( row );
 				res.send(err);
 			}
 
 			else if(task && task.givDuration){
 				res.send(task.objectId+":"+parsMill(task.givDuration));
 				row.result = task.objectId+":"+parsMill(task.givDuration);
+				row.taskName = task.name;
 				logger( row );
 			}
 			else{
 				res.send(req.params.object_id +":"+ -1);
 				//there is no task
 				row.result = req.params.object_id +":"+ -1;
-				looger( row );
+				logger( row );
 			}
 		});
 	});
@@ -113,17 +116,16 @@ router.get("/download/:action/:set_id", function(req,res){
 	Log.find({action:req.params.action, set_id: req.params.set_id}, function(err, logs){
 		if(err)
 			res.send(err);
-		else if(logs){	
-			var csvStream = csv.format({headers: true, objectMode: true});
-   			var writableStream = fs.createWriteStream("log.csv");
+		else if(logs){
+			var csvStream = csv.format({headers: true, objectMode: true, quoteColumns:true });
+			var fileName = req.params.action + ".txt";
+   			var writableStream = fs.createWriteStream( fileName );
    				writableStream.on("finish", function(){
-   					console.log("done");
-  					res.download("log.csv");
+  					res.download( fileName );
 				});
 			csvStream.pipe(writableStream);
 			logs.forEach(function(log){
-				log["date"] =  new Date(parseInt(log.date));
-				console.log(log);
+				log["date"] = new Date(parseInt(log.date));
 				csvStream.write(log.toObject());
 			});	
 			csvStream.end();
@@ -139,13 +141,11 @@ router.get("/print/:action/:set_id", function(req,res){
 			var csvStream = csv.format({headers: true, objectMode: true});
    			var writableStream = fs.createWriteStream("log.log");
    				writableStream.on("finish", function(){
-   					console.log("done");
   					res.sendfile("log.log");
 				});
 			csvStream.pipe(writableStream);
 			logs.forEach(function(log){
 				log["date"] =  new Date(parseInt(log.date));
-				console.log(log);
 				csvStream.write(log.toObject());
 			});	
 			csvStream.end();
@@ -155,7 +155,6 @@ router.get("/print/:action/:set_id", function(req,res){
 
 router.get("/", function(req, res) {
 	res.sendfile("index.html");
-	console.log(req.session.passport.user);
 });
 
 app.get("/currentUser", function(req,res){
@@ -225,11 +224,11 @@ passport.use(new LocalStrategy(function(username, password,done){
 router.use("/public", express.static("public"));
 
 router.route("/objectOn/:set_id/:objectId/:timeStamp")
-	.use( function( req, res, next ) {
+	.all( function( req, res, next ) {
 		User.findOne( { set_id: req.params.set_id } )
 		.sort("dateJoined")
-		.find( function( err, user) {
-		req.user = user;
+		.find( function( err, users) {
+		req.user = users[ 0 ];
 				next();
 			})
 	})
@@ -237,11 +236,11 @@ router.route("/objectOn/:set_id/:objectId/:timeStamp")
 		req.session = null;
 		res.send("o");
 		logger({entity:"object spark",
-				name:req.params.objectId + req.params.set_id,
 				date: Date.now() + timeOffset,
 				request: "/objectOn/" + req.params.objectId + "/" + req.params.set_id + "/" + req.params.timeStamp,
 				action: "objectOn",
 				result: "object on",
+				object_id: req.params.objectId,
 				set_id: req.params.set_id,
 				user_id: req.user.name
 		});
@@ -383,7 +382,6 @@ router.route("/tasks")
 	})
 
 	.get(function(req, res){
-		console.log(req);
 		var id = req.session.passport.user ? req.session.passport.user._id : req.query.userid;
 		Task.find({userid:id},function(err, tasks){
 			if(err)
@@ -396,11 +394,11 @@ router.route("/tasks")
 
 router.route("/setDuration/:set_id/:object_id/:ex_duration/:flag")
 
-	.use( function( req, res, next ) {
+	.all( function( req, res, next ) {
 		User.findOne( { set_id: req.params.set_id } )
 			.sort("dateJoined")
-			.find( function( err, user) {
-				req.user = user;
+			.find( function( err, users) {
+				req.user = users[ 0 ];
 				next();
 			})
 	})
@@ -408,14 +406,14 @@ router.route("/setDuration/:set_id/:object_id/:ex_duration/:flag")
 		req.session = null;
 		var row = {
 			entity:"object spark",
-			objet_id: req.params.object_id,
+			object_id: req.params.object_id,
 			date: Date.now()  + timeOffset,
 			request: "/setDuration/" + req.params.object_id + "/" + req.params.ex_duration + "/" + req.params.flag,
 			action: "setDuration",
 			user_id: req.user.name,
 			set_id: req.params.set_id,
 		}
-
+		console.log( row )
 		Task.findOne({objectId:req.params.object_id, set_id:req.params.set_id}, function(err, task){
 			if(err){
 				row.result = "error[ task didnt found for this object ]",
@@ -440,7 +438,7 @@ router.route("/setDuration/:set_id/:object_id/:ex_duration/:flag")
 					}
 					else if(task && ( req.user != null ) ){
 						res.send("task end");
-						row.extend({
+						extend(row, {
 							date: (lastDate-(lastDate%1000)),
 							result: "task end [ task is complete successfully ]",
 							taskName: task.name,
@@ -454,14 +452,16 @@ router.route("/setDuration/:set_id/:object_id/:ex_duration/:flag")
 							givFreeTime: Math.round( task.givFreeTime ),
 							endTime: getHMS(task.lastDate),
 							startTime: calcTime(task.lastDate, task.exDuration),		
-							wakeUp: user.wakeUp, 
-							goOut: user.goOut,
+							wakeUp: req.user.wakeUp, 
+							goOut: req.user.goOut,
 							taskDate: getYMD(task.lastDate),
 						})
 						logger( row, true, task );
 					}
-				}
+				});
+			}
 		});
+	});
 
 
 	
@@ -498,38 +498,33 @@ router.route("/tasks/:task_id")
 				task.exFreeTime = req.body.exFreeTime;
 				task.givFreeTime = req.body.givFreeTime;
 				task.set_id = req.body.set_id;
+
+				var updated = req.body.updated;
+				var operation;
+				if ( updated ) {
+					operation = "updated";
+				} else if ( task.checked ) {
+					operation = "checked";
+				} else {
+					operation = "un-checked";
+				}
 				
 				task.save(function(err,task){
 					if(err)
 						res.send(err);
 					else{
 		 				res.json(task);
-		 				var endTime, startTime, taskDate;	
-		 				if (task.lastDate&&task.exDuration){
-		 					endTime =  getHMS(task.lastDate),
-		 					startTime = calcTime(task.lastDate, task.exDuration),
-		 					taskDate =  getYMD(task.lastDate)
-		 				}
-
 		 				logger({entity:"user",
 								user_id: req.session.passport.user.name,
 								date: Date.now() + timeOffset,
 								request:"/tasks/" + req.params.task_id,
 								action: "updateTask",
-								result: "updated",
+								operation: operation,
 								taskName: task.name,
-								objectId: task.objectId,
+								object_id: task.objectId,
 								set_id: task.set_id,
 								givDuration: task.givDuration,
-								exDuration: task.exDuration,
-								exception: task.exception,
-								endedByUser: task.endedByUser,
-								overexcep: task.overexcep,
-								exFreeTime: task.exFreeTime,
 								givFreeTime: task.givFreeTime,
-								endTime: endTime, 
-								startTime: startTime,		
-								taskDate: taskDate,
 							});
 		 			}
 				});
@@ -603,7 +598,6 @@ router.route("/tasks/:task_id")
 			};
 				var prev = sortChecked.find(_predicate);
 				var prev = prev._wrapped;
-				console.log(prev);
 
 				if(prev){
 					otp = Date.parse(prev.lastDate);
@@ -615,12 +609,10 @@ router.route("/tasks/:task_id")
 						if (err)
 							console.log(err);
 						else if(prev){
-							console.log(Date.parse(prev.lastDate) + "-prev lastDate");
 							Log.findOne({date:Date.parse(prev.lastDate)}, function(err, log){
 								if(err)
 									console.log(err);
 								else if(log){
-									console.log("hay");
 									log.exFreeTime = Math.round( _millFreeTime / 1000 );
 									log.save(function(err, log){
 										if(err)
@@ -633,20 +625,16 @@ router.route("/tasks/:task_id")
 				}	
 			}
 		});
-		console.log("2");
-		console.log(task);
 	}
 
 	logger = function(prop, flag, task){
 		var log = new Log(prop);
 		log.save(function(err, log){
 			if(err){
-				console.log(prop);
 				console.log(err);
 			}
 			else if (log&&flag){
 				freeTime(task);
-				console.log(log.date + "-log date");
 			}
 
 		});
@@ -660,7 +648,6 @@ router.route("/tasks/:task_id")
 
 
 	taskReset = function(){
-		console.log("yay");
 		Task.find(function(err,tasks){
 			if(err)
 				console.log(err);

@@ -3,6 +3,7 @@ var Schema = mongoose.Schema;
 
 var logSchema = new Schema({
 			object_id: String,
+			operation: String,
 			entity: String,
 			date:String,
 			request:Object,

@@ -40,41 +40,23 @@ var SetDuration_page = Backbone.View.extend({
 		if(!this.model.timeValidate())
 			alert("שעת סיום התארגנות מאוחרת משעת היציאה שהגדרת באפשרותך לשנות שעת יציאה שעת התעוררות או את זמני המשימות והמעבר")
 
-		else if(this.validate()){
-			console.log(this.$("svg"));
-			this.$("svg").show();
-			var nav = _.after(this.model.checked().length, function(){
-				_.chain(viewList).each(function(view){view.remove()});
-				if (app.last == "signIn")
-					app.router.navigate("", true);
-				else
-					app.router.navigate("placeObject", true);
-			});
-			_.chain(this.model.checked())
-			.each(function(task){
-				task.set({exDuration:null});
-				task.set({overexcep:null});
-				task.set({exFreeTime:null});
-				task.save(task.attributes,{success:nav});
-
-			});
-			
-		}
-		else
-			alert("יש משימות שלא משויכות לאוביקט")
-
-	},
-
-	validate: function(){
-		var checked = this.model.checked();
-		var flag = true;
-		
-		_.chain(checked).each(function(task){
-			if(task.get("objectId") == null)
-				flag = false;
+		this.$("svg").show();
+		var nav = _.after(this.model.checked().length, function(){
+			_.chain(viewList).each(function(view){view.remove()});
+			if (app.last == "signIn")
+				app.router.navigate("", true);
+			else
+				app.router.navigate("placeObject", true);
+		});
+		_.chain(this.model.checked())
+		.each(function(task){
+			task.set({exDuration:null});
+			task.set({overexcep:null});
+			task.set({exFreeTime:null});
+			task.set({updated: true});
+			task.save( task.attributes, {success:nav} );
 		});
 
-		return flag;
 
 	},
 
