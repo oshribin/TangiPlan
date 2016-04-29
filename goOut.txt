@@ -1,0 +1,6 @@
+"_id","entity","user_id","date","time","request","action","result","set_id","__v"
+"56cd421d0ce1015c45000007","User","ystest","Wed Feb 24 2016 08:39:41 GMT+0000 (UTC)","08:39:41.426Z","/User/56a8ad318892214e130009c2","goOut","go Out","B","0"
+"56ce91e1493634094b000003","User","ystest","Thu Feb 25 2016 08:32:17 GMT+0000 (UTC)","08:32:17.342Z","/User/56a8ad318892214e130009c2","goOut","go Out","B","0"
+"56d2a8c4cf71992862000001","User","ystest","Sun Feb 28 2016 10:59:00 GMT+0000 (UTC)","10:59:00.038Z","/User/56a8ad318892214e130009c2","goOut","go Out","B","0"
+"56d370b4cf71992862000017","User","ystest","Mon Feb 29 2016 01:12:04 GMT+0000 (UTC)","01:12:04.860Z","/User/56a8ad318892214e130009c2","goOut","go Out","B","0"
+"570098b46e5aaa9f40000121","User","ystest","Sun Apr 03 2016 07:14:44 GMT+0000 (UTC)","07:14:44.220Z","/User/56a8ad318892214e130009c2","goOut","go Out","B","0"

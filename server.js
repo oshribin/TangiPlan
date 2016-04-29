@@ -602,7 +602,7 @@ router.route("/tasks/:task_id")
 				if(prev){
 					otp = Date.parse(prev.lastDate);
 					tp = Date.parse(task.lastDate);
-                    var _millFreeTime = tp - op - parsMill( task.exDuration );
+                    var _millFreeTime = tp - otp - parsMill( task.exDuration );
 					var freeTime = parseVal(_millFreeTime);
 					prev.exFreeTime = freeTime;
 					prev.save(function(err,prev){
@@ -667,5 +667,5 @@ router.route("/tasks/:task_id")
 
 
 app.use("/TangiPlan", router);
-app.listen("8080");
+app.listen("80");
 console.log("walla");
