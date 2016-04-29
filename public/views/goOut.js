@@ -47,7 +47,8 @@ var GoOut_page = Backbone.View.extend({
 	},
 
 	set_clock:function(){
-      this.$('input').mobiscroll().time({
+    this.$( 'input' ).val( '08:00' )
+    this.$('input').mobiscroll().time({
         display : "inline",
         hourText : "שעות",
         minuteText: "דקות",
@@ -58,8 +59,8 @@ var GoOut_page = Backbone.View.extend({
         timeWheels:"HHii",
         timeFormat: "HH:ii",
         stepMinute:5,
-    });   
-
+        deafaultValue: new Date(),
+    });
 	},
 
 });

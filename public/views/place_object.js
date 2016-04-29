@@ -4,6 +4,7 @@ var placeObject_page = Backbone.View.extend({
 
 	events: {
 		"click .homeNav" : "home",
+		"click .place-button": "home"
 	},
 
 	home: function(){

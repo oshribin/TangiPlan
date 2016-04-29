@@ -140,27 +140,19 @@
               </script>
 
 
-
-
-
                 <!--title template -->
         <script id = "titleBar" type="text/x-handlebars-template">
           <div class = "row">
             <div class = "title-bar col-md-12 col-xs-12">
             <div class = "titleButtons col-xs-2"> 
-            {{# if name }}
-              <span class = "col-xs-2 col-xs-offset-1 glyphicon glyphicon-log-out logOut"></span>
-            {{/ if}}
               <span class = "col-xs-offset-2 col-xs-2 glyphicon glyphicon-home homeNav"></span>
             </div>
-             <div class = "title col-md-offset-2 col-xs-4">
+             <div class = "title col-md-offset-3 col-xs-offset-2 col-xs-4">
                 {{title}}
              </div> 
-            {{#if name }}
-            <div class = "title col-xs-4">
-                !{{name}} שלום
-             </div>
-             {{/ if}} 
+            {{# if name }}
+              <span class = "logOut">Logout</span>
+            {{/ if}} 
             </div>
           </div>   
         </script>
@@ -458,6 +450,9 @@
           <img src = "public/photos/u76.png" style = "height:400px; width:250px;" class = "col-xs-offset-3 col-xs-6"></img>
           <h3 class = "header col-xs-offset-3 col-xs-4" style ="text-align:right">רשימת המשימות</h3>
           <ul class = "placeList col-xs-offset-3 col-xs-4"></ul>
+          <button type="button" class = "btn btn-deafault place-button col-md-2 col-xs-4 col-md-offset-5 col-xs-offset-4">
+                סיימתי למקם את האובייקטים
+          </button>
         </script>
 
 
